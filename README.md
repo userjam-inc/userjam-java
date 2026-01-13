@@ -20,34 +20,34 @@ Since this is a lightweight reference implementation, you don't need to add a re
 ```
 ### **Gradle (build.gradle)**
 
+```groovy
 implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+```
 
 ## **Usage**
 ```java
-// The SDK is asynchronous by default, returning CompletableFuture<HttpResponse<String>>.  
-
-import com.userjam.sdk.Userjam;  
+import com.userjam.sdk.Userjam;
 import java.util.Map;
 
-public class App {  
-    public void init() {  
-        // 1. Initialize with your API Key  
-        Userjam.auth("YOUR_API_KEY_UUID");  
+public class App {
+    public void init() {
+        // 1. Initialize with your API Key
+        Userjam.auth("YOUR_API_KEY_UUID");
     }
 
-    public void logPurchase(String userId) {  
-        // 2. Track an event  
-        Userjam.track(userId, "Purchase Completed", Map.of(  
-            "amount", 99.99,  
-            "currency", "USD"  
-        ));  
-          
-        // 3. Identify a user (optional)  
-        Userjam.identify(userId, Map.of(  
-            "email", "user@example.com",  
-            "plan", "Pro"  
-        ));  
-    }  
+    public void logPurchase(String userId) {
+        // 2. Identify the user (send this at least once to establish their profile)
+        Userjam.identify(userId, Map.of(
+            "email", "user@example.com",
+            "plan", "Pro"
+        ));
+
+        // 3. Track an event
+        Userjam.track(userId, "Purchase Completed", Map.of(
+            "amount", 99.99,
+            "currency", "USD"
+        ));
+    }
 }
 ```
 ## **Running the Example**
