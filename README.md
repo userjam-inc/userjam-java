@@ -2,7 +2,7 @@
 
 A minimal, zero-dependency\* SDK for integrating Userjam tracking into Java 11+ applications.  
 
-*Note: This SDK uses java.net.http.HttpClient (Java 11+) and depends only on jackson-databind for robust JSON serialization. It is designed to be dropped directly into your source tree.*
+*Note: This SDK uses `java.net.http.HttpClient` (Java 11+) and depends only on jackson-databind for robust JSON serialization. It is designed to be dropped directly into your source tree.*
 
 ## **Installation**
 
